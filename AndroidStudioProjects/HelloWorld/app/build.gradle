@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.example.bryan.helloworld"
+        minSdkVersion 10
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile files('lib/tess4j.jar')
+    compile files('lib/jna-4.1.0.jar')
+    compile files('lib/jai_imageio.jar')
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile project(':jai_imageio')
+    compile project(':jna-4.1.0')
+    compile project(':tess4j')
+}
